@@ -1,47 +1,32 @@
-mydata = read.csv('C:\\Users\\Picard\\Dropbox\\Other Folders\\LABS\\Year 3\\CS3002\\002 - Clustering (Assessed)\\seeds_dataset.csv') #imports the data from seeds_dataset.csv
-mydata = na.omit(mydata) #prepping data, removing empty values
-mydata = scale(mydata) #prepping data, standardizing variables
+mydata = read.csv('C:\\Users\\Picard\\Dropbox\\Github\\CS3002_02_Clustering\\spaeth_01.csv', sep=",")
 
-#Kmeans clustering:
+plot(mydata)
 
-#k=1
-fit<- kmeans(mydata, 1)
+# optional: Prepare Data
+mydata = na.omit(mydata) # deletion of missing data
+mydata = scale(mydata) # standardize variables
+
+d <- dist(mydata, method = "euclidean") # distance matrix
+
+fit <- hclust(d, method="average")
+plot(fit) # display dendogram
+
+Hgroups <- cutree(fit, k=5) # cut tree into 5 clusters
+
+rect.hclust(fit, k=5, border="red")
+
+plot(mydata, col=Hgroups)
+
+#Kmeans:
+
+fit <- kmeans(mydata, 5) # 5 cluster solution
+
 aggregate(mydata,by=list(fit$cluster),FUN=mean)
 
-#k=2
-fit<- kmeans(mydata, 1)
-aggregate(mydata,by=list(fit$cluster),FUN=mean)
+Kgroups = fit$cluster
 
-#k=3
-fit<- kmeans(mydata, 1)
-aggregate(mydata,by=list(fit$cluster),FUN=mean)
+plot(mydata, col=Kgroups)
 
-#k=4
-fit<- kmeans(mydata, 1)
-aggregate(mydata,by=list(fit$cluster),FUN=mean)
+source("C:\\Users\\Picard\\Dropbox\\Github\\CS3002_02_Clustering\\WK_R.r")
 
-#k=5
-fit<- kmeans(mydata, 1)
-aggregate(mydata,by=list(fit$cluster),FUN=mean)
-
-#k=6
-fit<- kmeans(mydata, 1)
-aggregate(mydata,by=list(fit$cluster),FUN=mean)
-
-#k=7
-fit<- kmeans(mydata, 7)
-aggregate(mydata,by=list(fit$cluster),FUN=mean)
-
-Kgroups = fit$cluster #assigns value to Kgroups
-plot(mydata, col=Kgroups) #plots scatterplot of mydata with Kgroups to colour code
-
-
-
-
-
-
-
-
-
-
-source("C:\\Users\\Picard\\Dropbox\\Other Folders\\LABS\\Year 3\\CS3002\\002 - Clustering (Assessed)\\WK_R.R") #imports Weighted Kappa code to use as source
+wk = WK_R(Kgroups, Hgroups)
