@@ -1,4 +1,4 @@
-mydata = read.csv('C:\\Users\\Picard\\Dropbox\\Github\\CS3002_02_Clustering\\spaeth_01.csv', sep=",")
+mydata = read.csv('C:\\Users\\Picard\\Dropbox\\Github\\CS3002_02_Clustering\\spaeth_02.csv', sep=",")
 
 plot(mydata)
 
@@ -30,3 +30,4 @@ plot(mydata, col=Kgroups)
 source("C:\\Users\\Picard\\Dropbox\\Github\\CS3002_02_Clustering\\WK_R.r")
 
 wk = WK_R(Kgroups, Hgroups)
+
