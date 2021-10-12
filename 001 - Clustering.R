@@ -32,7 +32,7 @@ for(k in min:max)
   Hgroups <- cutree(fit, k) #cuts dendrogram into k clusters
   rect.hclust(fit, k, border="pink") #places pink borders to display k clusters
   plot(mydata, col=Hgroups, main=bquote("hierarchical clustering, Average Linkage, k="~.(k))) #plots scatterplot with colour coded clusters
-  wk_ha = WK_R(Kgroups, truedata$V1) #sets wk value to the value returned by WK_R code
+  wk_ha = WK_R(Hgroups, truedata$V1) #sets wk value to the value returned by WK_R code
   wk_store_ha <- rbind(wk_store_ha, (wk_temp_ha <- data.frame(k,wk_ha))) #creates wk_temp dataframe, adds k and wk to wk_temp, binds wk_temp to bottom of wk_store
 }
 
@@ -45,7 +45,7 @@ for(k in min:max)
   Hgroups <- cutree(fit, k) #cuts dendrogram into k clusters
   rect.hclust(fit, k, border="pink") #places pink borders to display k clusters
   plot(mydata, col=Hgroups, main=bquote("hierarchical clustering, Complete Linkage, k="~.(k))) #plots scatterplot with colour coded clusters
-  wk_hc = WK_R(Kgroups, truedata$V1) #sets wk value to the value returned by WK_R code
+  wk_hc = WK_R(Hgroups, truedata$V1) #sets wk value to the value returned by WK_R code
   wk_store_hc <- rbind(wk_store_hc, (wk_temp_hc <- data.frame(k,wk_hc))) #creates wk_temp dataframe, adds k and wk to wk_temp, binds wk_temp to bottom of wk_store
 }
 
@@ -58,7 +58,7 @@ for(k in min:max)
   Hgroups <- cutree(fit, k) #cuts dendrogram into k clusters
   rect.hclust(fit, k, border="pink") #places pink borders to display k clusters
   plot(mydata, col=Hgroups, main=bquote("hierarchical clustering, Single Linkage, k="~.(k))) #plots scatterplot with colour coded clusters
-  wk_hs = WK_R(Kgroups, truedata$V1) #sets wk value to the value returned by WK_R code
+  wk_hs = WK_R(Hgroups, truedata$V1) #sets wk value to the value returned by WK_R code
   wk_store_hs <- rbind(wk_store_hs, (wk_temp_hs <- data.frame(k,wk_hs))) #creates wk_temp dataframe, adds k and wk to wk_temp, binds wk_temp to bottom of wk_store
 }
 
