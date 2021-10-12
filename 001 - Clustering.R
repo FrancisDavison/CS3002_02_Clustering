@@ -1,6 +1,5 @@
-mydata = read.csv('C:\\Users\\Picard\\Dropbox\\Other Folders\\LABS\\Year 3\\CS3002\\002 - Clustering (Assessed)\\seeds_dataset.csv') #imports the data from seeds_dataset.csv
-source("C:\\Users\\Picard\\Dropbox\\Other Folders\\LABS\\Year 3\\CS3002\\002 - Clustering (Assessed)\\WK_R.R") #imports Weighted Kappa code to use as source
-
+mydata = read.csv('.\\seeds_dataset.csv') #imports the data from seeds_dataset.csv
+source(".\\WK_R.R") #imports Weighted Kappa code to use as source
 min=2 #defines minimum value of k, cannot be less than 2
 max=8 #defines maximum value of k
 
